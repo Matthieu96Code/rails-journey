@@ -1,0 +1,22 @@
+<h1>Articles</h1>
+
+<% @posts.each do |post| %>
+
+    <h2> <%= post.name %> </h2>
+    <p> <%= post.content %> </p>
+    <p>
+        <a href="<%= post_path(post.id) %>" class="btn btn-primary">Lire la suite</a>
+        <%= link_to "show post", post, class: 'btn btn-primary' %>
+
+        <a href="<%= edit_post_path(post.id) %>" class="btn btn-default">Editer</a>
+        <%= link_to "Edit post", edit_post_path(post.id), class: "btn btn-default"%>
+
+        <%= button_to "destroy post", post, method: :delete, class: "mt-2 btn btn-danger"%>
+    </p>    
+
+<% end %>
+
+<p class="mt-5">
+    <a href="<%= new_post_path %>" class="btn btn-success">Créer un article</a>
+    <%= link_to "New post", new_post_path, class: "btn btn-success"%>
+</p>
